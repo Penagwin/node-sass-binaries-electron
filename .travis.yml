@@ -1,20 +1,15 @@
-language: objective-c
+language: node_js
 
-env:
-  matrix:
-    - export NODE_VERSION="0.12"
+node_js:
+  - '0.10'
+  - '0.12'
+
+
+compiler: clang
 
 before_install:
-
-  - git clone https://github.com/creationix/nvm.git ./.nvm
-  - source ./.nvm/nvm.sh
-  - nvm install $NODE_VERSION
-  - nvm use $NODE_VERSION
   - npm install node-gyp -g
-
-
 install:
-
   - npm install
   - cd ./node_modules/node-sass/
   - npm install
@@ -26,5 +21,5 @@ script:
 
 after_success:
   - ls ./vendor
-  - zip -r binaries-$TRAVIS_OS_NAME ./vendor
+  - zip -r binaries-$TRAVIS_OS_NAME ./vendor 
   - curl --ftp-create-dirs -T binaries-$TRAVIS_OS_NAME.zip -u $FTP_USER:$FTP_PASSWORD ftp://penagw.in
