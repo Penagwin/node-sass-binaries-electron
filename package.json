@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Penagwin/node-sass-binaries-electron#readme",
   "dependencies": {
+    "node-sass": "^3.0.0",
     "electron-prebuilt": "^0.27.1"
   }
 }
