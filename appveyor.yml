@@ -1,0 +1,19 @@
+# Test against this version of Node.js
+environment:
+  nodejs_version: "0.12"
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - npm install
+  - npm install node-gyp -g
+  - cd ./node_modules/node-sass/
+  - npm install
+  - rm -r ./vendor
+build_script:
+  - node ./scripts/build.js  --target=0.25.0 --arch=ia64 --dist-url=https://atom.io/download/atom-shell
+
+after_build:
+  - jar -cMf binaries-windows.zip ./vendor 
+
+artifacts:
+  - path: binaries-windows.zip
