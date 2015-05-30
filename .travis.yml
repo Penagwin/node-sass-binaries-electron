@@ -23,8 +23,8 @@ script:
   - node ./scripts/build.js  --target=0.25.0 --arch=ia64 --dist-url=https://atom.io/download/atom-shell
 
 after_success:
-  - ls ./node-sass/vendors
-  - zip -r ./node-sass/vendors binaries.zip
+  - ls ./vendors
+  - zip -r ./vendors binaries.zip
 deploy:
   provider: releases
   api_key:
