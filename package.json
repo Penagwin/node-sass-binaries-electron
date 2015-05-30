@@ -1,0 +1,22 @@
+{
+  "name": "node-sass-binaries-electron",
+  "version": "1.0.0",
+  "description": "All of the Node-Sass binaries, compiled with electron (formerly atom-shell) headers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Penagwin/node-sass-binaries-electron.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Penagwin/node-sass-binaries-electron/issues"
+  },
+  "homepage": "https://github.com/Penagwin/node-sass-binaries-electron#readme",
+  "dependencies": {
+    "electron-prebuilt": "^0.27.1"
+  }
+}

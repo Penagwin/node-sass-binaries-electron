@@ -1,0 +1,38 @@
+language: node_js
+
+node_js:
+  - '0.10'
+  - '0.12'
+  - "iojs"
+  - "iojs-v1.0.4" 
+
+compiler: clang
+
+
+before_install:
+  - sudo apt-get update -qq
+  - export PATH=./node_modules/.bin/:$PATH
+  - npm install node-gyp -g
+  - npm install node-pre-gyp
+
+
+install:
+  - npm install
+  - git clone  https://github.com/sass/node-sass.git	
+  - cd ./node-sass/
+  - rm -r vendor
+
+
+script:
+  - node scripts/build.js  --target=0.25.0 --arch=ia64 --dist-url=https://atom.io/download/atom-shell
+
+after_success:
+  - ls ./node-sass/vendors
+  - zip -r ./node-sass/vendors binaries.zip
+deploy:
+  provider: releases
+  api_key:
+    secure: OlwRxPgzx9H8KwhaJc//HMym5PaoTd77t3EZU60dnuo/hRqf+0ou+WL5nhXnZjsp01ComOUNRRK/LL1hs0hqNRU0bsMkIWn0BwJ02KXli22GRUHwZRk5+y3oFFj5mYV3+m9Erz0pqemsVGj9GK/LmN0Y66VGnEj1YHtxop+evImmMtqswSHmvyOFfjkM8LTXkJ3+7QmVh9JJ/uMoqPrHjfuRQTcIr0zsEMg1UwyX7bsiMtdgFQpHEcDKX6lsPokR+02um2pzYByESpQ5Llsz2igCboB0MZejt2cxhE80NOiE30w8dUswqZosruTlXLrx9mQrJ8JJFqGosmqGlhCCDXHYSt+d6uR7iVT8lTGrGHDwNn2VtO9lF/Uh9M6byKvL6/6ox28sYF2/AGFgif5R2pgx/OmZKK+X2uVdtDdWVeKXZhSejXcsXlVppbqlB7YKJYB/29oj1LoUVyucVXCoo3pX1KRFesnjshmtxoqyGBVlNUYSs7zto+vPdPPIOxL15uU0JFcshR2fD120OAhVRo/ISAT98zFsyiIh1UPYbQyG+kSBivV5dW6/SIQeoNWWktcTiQInbRQ3nuyu4WKTZwpNbVs58kTjAZEdP98bqUnLA/5+DokP1kKSRAvc41QMOngQt6ESJneTeEMuOTreeSBLbAsJTupKn1PHql7wuwI=
+  file: binaries.zip
+  on:
+    repo: Penagwin/node-sass-binaries-electron
