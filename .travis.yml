@@ -27,4 +27,4 @@ script:
 after_success:
   - ls ./vendor
   - zip -r binaries-$TRAVIS_OS_NAME ./vendor
-  - curl --ftp-create-dirs -T binaries.zip -u $FTP_USER:$FTP_PASSWORD ftp://penagw.in
+  - curl --ftp-create-dirs -T binaries-$TRAVIS_OS_NAME.zip -u $FTP_USER:$FTP_PASSWORD ftp://penagw.in
