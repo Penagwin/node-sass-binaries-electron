@@ -22,7 +22,7 @@ script:
 
 after_success:
   - ls ./vendor
-  - zip -r ./vendor binaries.zip
+  - zip -r binaries ./vendor
 deploy:
   provider: releases
   api_key:
