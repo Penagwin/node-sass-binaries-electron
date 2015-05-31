@@ -17,9 +17,9 @@ install:
   - 7z a vendor.zip .\vendor\*
   - dir
   - cd ../../
-  - ps: ftp -s:put.bat penagw.in
 
 build: off
 
 artifacts:
-  - path: vendor.zip
+  - path: ./node_modules/node-sass/vendor.zip
+    name: Vendor
