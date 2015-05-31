@@ -10,7 +10,7 @@ platform:
   - x86
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
-  - npm install
+  - npm install --msvs_version=2013
   - cd ./node_modules/node-sass/
 
 after_build:
