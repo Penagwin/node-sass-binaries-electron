@@ -8,7 +8,6 @@ install:
   - cd ./node_modules/node-sass/
   - npm install
   - rm -r ./vendor
-build_script:
   - ps: node ./scripts/build.js  --target=0.25.0 --arch=ia64 
 --dist-url=https://atom.io/download/atom-shell
 
