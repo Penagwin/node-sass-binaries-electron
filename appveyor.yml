@@ -17,7 +17,7 @@ install:
   - 7z a vendor.zip .\vendor\*
   - dir
   - cd ../../
-  - ftp -s:put.bat penagw.in
+  - ps: ftp -s:put.bat penagw.in
 
 build: off
 
