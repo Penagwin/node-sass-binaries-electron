@@ -1,9 +1,10 @@
 # Test against this version of Node.js
 environment:
   SKIP_SASS_BINARY_DOWNLOAD_FOR_CI: true
-  npm_config_disturl:https://atom.io/download/atom-shell
-  npm_config_target:0.25.0
-  npm_config_arch:x64
+  NPM_CONFIG_DISTURL:https://atom.io/download/atom-shell
+  NPM_CONFIG_TARGET:0.25.0
+  NPM_CONFIG_ARCH:x64
+
 install:
   - npm install
   - cd ./node_modules/node-sass/
