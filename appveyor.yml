@@ -1,15 +1,12 @@
 # Test against this version of Node.js
 environment:
-  nodejs_version: "0.12"
-
+  SKIP_SASS_BINARY_DOWNLOAD_FOR_CI: true
+  npm_config_disturl:https://atom.io/download/atom-shell
+  npm_config_target:0.25.0
+  npm_config_arch:x64
 install:
   - npm install
-  - npm install node-gyp -g
   - cd ./node_modules/node-sass/
-  - npm install
-  - rm -r ./vendor
-  - ps: node ./scripts/build.js  --target=0.25.0 --arch=ia64 
---dist-url=https://atom.io/download/atom-shell
 
 after_build:
   - jar -cMf binaries-windows.zip ./vendor 
