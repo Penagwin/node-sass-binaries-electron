@@ -13,9 +13,8 @@ install:
   - npm install --msvs_version=2013
   - cd ./node_modules/node-sass/
   - dir
-  - jar -cMf binaries-windows.zip ./vendor 
 
 build: off
 
 artifacts:
-  - path: binaries-windows.zip
+  - path: vendor
