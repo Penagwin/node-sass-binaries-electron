@@ -9,7 +9,8 @@ install:
   - npm install
   - rm -r ./vendor
 build_script:
-  - node ./scripts/build.js  --target=0.25.0 --arch=ia64 --dist-url=https://atom.io/download/atom-shell
+  - ps: node ./scripts/build.js  --target=0.25.0 --arch=ia64 
+--dist-url=https://atom.io/download/atom-shell
 
 after_build:
   - jar -cMf binaries-windows.zip ./vendor 
