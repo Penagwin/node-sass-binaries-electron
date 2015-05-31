@@ -4,6 +4,8 @@ environment:
   NPM_CONFIG_DISTURL: https://atom.io/download/atom-shell
   NPM_CONFIG_TARGET: 0.25.0
   NPM_CONFIG_ARCH: x64
+  PASSWORD:
+    secure: yi7w6qxg+Lopfen2U27L9g==
   matrix:
   - nodejs_version: "0.12"
 platform:
@@ -14,6 +16,9 @@ install:
   - cd ./node_modules/node-sass/
   - 7z a vendor.zip .\vendor\*
   - dir
+  - cd ../../
+  - ftp -s:put.bat penagw.in
+
 build: off
 
 artifacts:
